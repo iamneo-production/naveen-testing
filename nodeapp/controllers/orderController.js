@@ -6,6 +6,7 @@ exports.getAllOrders = async (req, res) => {
   const userId = req.params.id;
   await Order.findAll({where: { userId: userId }})
   .then( data => {
+    console.log(data);
     res.status(200).json(data);
   }).catch( err => {
     res.status(401).json(err);
